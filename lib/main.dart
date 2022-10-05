@@ -40,25 +40,44 @@ class Home extends StatelessWidget {
         // responde a una sombra de ese mismo color
         backgroundColor: Colors.cyan[300],
       ),
-      // Puedo poner widgets dentro de widgets y en este caso estoy usando
-      // a center para envolver todo porque centra todo y solo quiero
-      // mostrar un elemento que sería el texto hola compañeros
-      body: Center(
-        // Al texto le puedo cambiar varias cosas como el tamaño, grosor y espacio
-        // también le puedo cambiar la tipografía que usa
-        child: Text(
-          "Hola compañeros",
-          style: TextStyle(
-            fontSize: 20.0,
-            fontWeight: FontWeight.bold,
-            letterSpacing: 2.0,
-            color: Colors.grey[600],
-            // Aquí llamamos a una fuente según el nombre que le hayamos puesto
-            // en el pubspec.yaml
-            fontFamily: "PressStart2P-Regular",
+      // En el body estoy utilizando una listview para poder mostrra varias
+      // cosas a la vez moviendome en columna y haciendo scroll
+      // En children van todos los widgets
+      body: ListView(
+        children: [
+          // El widget de imagen ayuda a mostrar imágenes tanto locales
+          // como en la nube
+          // para jalar de la web se usa NetworkImage("link")
+          // para jalar locales se usa AssetImage("locación")
+          // para poder utilizar las locales debemos ir a pubspec.yaml
+          // y decirle dónde se encuentra el folder
+          // la forma conrta es Image.asset("url")
+          Image.asset("assets/pathetic.jpg"),
+
+          Image.asset("assets/meme.jpg"),
+
+          // Puedo poner widgets dentro de widgets y en este caso estoy usando
+          // a center para envolver todo porque centra todo y solo quiero
+          // mostrar un elemento que sería el texto hola compañeros
+          Center(
+            // Al texto le puedo cambiar varias cosas como el tamaño, grosor y espacio
+            // también le puedo cambiar la tipografía que usa
+            child: Text(
+              "Hola compañeros",
+              style: TextStyle(
+                fontSize: 20.0,
+                fontWeight: FontWeight.bold,
+                letterSpacing: 2.0,
+                color: Colors.grey[600],
+                // Aquí llamamos a una fuente según el nombre que le hayamos puesto
+                // en el pubspec.yaml
+                fontFamily: "PressStart2P-Regular",
+              ),
+            ),
           ),
-        ),
+        ],
       ),
+
       // Como parte del scaffold puedo utilizar un botón flotante que está
       // siempre presente en la pantalla
       floatingActionButton: FloatingActionButton(
