@@ -4,11 +4,34 @@ import 'package:flutter/material.dart';
 // esta cosa es el comienzo del árbol de widgets
 void main() {
   // En este caso comienzo con MaterialApp pero es más común comenzar con
-  // MyApp()
-  runApp(MaterialApp(
-    // A su propiedad home le doy Scaffold para comenzar a armar una página de
+  // MyApp(), en home le doy el widget stateless que cree abajo
+  runApp(const MaterialApp(home: Home()));
+}
+
+// Para añadir fuentes nos vamos al pubspec.yaml archivo
+// Se descomenta unas lineas de código de fonts y se añade la
+// que pusimos en la carpeta fonts
+
+// Para crearlo de manera rápida utilizar el sniped
+// stless y darle a enter
+// En flutter todo es una class, todo lo que se usa, el center, Text, etc
+// son solo intancias de clases
+// Stateless = no puede cambiar nada visual
+// Stateful = puede cambiar data y visual
+class Home extends StatelessWidget {
+  const Home({super.key});
+
+  // Para que al guardar se presenten los cambios y no tener que
+  // presionar r manualmente a cada momento se utiliza la build
+  // Todo lo que hace es mandar un widget, en la myoría de casos
+  // un árbol de widgets que en conjunto forman una pantalla
+  // Al tener el build solo se recarga lo que está en el widget que cambió
+  // El override es porque estamos alterando la build de statelesswidget
+  @override
+  Widget build(BuildContext context) {
+    // A su propiedad return pasamos Scaffold para comenzar armar una página de
     // inicio bastante sencilla, scaffold es como una sección con appbar y botn
-    home: Scaffold(
+    return Scaffold(
       // Aquí configuro la appbar con color y texto
       appBar: AppBar(
         title: const Text("LA APP PARA RECORDAR"),
@@ -47,29 +70,6 @@ void main() {
         child: const Text("click"),
         backgroundColor: Colors.cyan[300],
       ),
-    ),
-  ));
-}
-
-// Para añadir fuentes nos vamos al pubspec.yaml archivo
-// Se descomenta unas lineas de código de fonts y se añade la
-// que pusimos en la carpeta fonts
-
-// Para crearlo de manera rápida utilizar el sniped
-// stless y darle a enter
-// En flutter todo es una class, todo lo que se usa, el center, Text, etc
-// son solo intancias de clases
-// Stateless = no puede cambiar nada visual
-// Stateful = puede cambiar data y visual
-class Home extends StatelessWidget {
-  const Home({super.key});
-
-  // Para que al guardar se presenten los cambios y no tener que
-  // presionar r manualmente a cada momento se utiliza la build
-  // Todo lo que hace es mandar un widget, en la myoría de casos
-  // un árbol de widgets que en conjunto forman una pantalla
-  @override
-  Widget build(BuildContext context) {
-    return Container();
+    );
   }
 }
