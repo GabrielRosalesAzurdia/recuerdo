@@ -56,6 +56,42 @@ class Home extends StatelessWidget {
 
           Image.asset("assets/meme.jpg"),
 
+          // Para utilizar íconos utilizamos el widget Icon
+          // Los icons de material están en Icons.algo
+          // con color podemos cambiar el color al icon
+          // size para cambiar el tamaño del ícono
+          const Icon(
+            Icons.airport_shuttle,
+            color: Colors.cyan,
+            size: 50.0,
+          ),
+
+          // para usar botones elevados utilizamos el widget Elevated Button
+          // En el child noemos un texto cualquiera
+          // en el style colocamos un styleform propiedad e ElevateButton
+          // para poder colocar todo lo estético de manera más sencila
+          // ya que estamos utilizando una list view el width de todo será
+          // el de toda la pantalla, para correguir eso y poder cambiar
+          // el width utilizaremos un Row y una limitedbox, algo demasiado
+          // para solo tener que cambiar un tamaño :)
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              LimitedBox(
+                child: ElevatedButton(
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    // aquí le damos los valores de tamaño
+                    fixedSize: const Size(100, 100),
+                    // para color
+                    backgroundColor: Colors.cyan,
+                  ),
+                  child: const Text("click me"),
+                ),
+              )
+            ],
+          ),
+
           // Puedo poner widgets dentro de widgets y en este caso estoy usando
           // a center para envolver todo porque centra todo y solo quiero
           // mostrar un elemento que sería el texto hola compañeros
@@ -85,9 +121,9 @@ class Home extends StatelessWidget {
         onPressed: () {
           print("hola");
         },
+        backgroundColor: Colors.cyan[300],
         // El child del boton puede ser texto o un ícono
         child: const Text("click"),
-        backgroundColor: Colors.cyan[300],
       ),
     );
   }
