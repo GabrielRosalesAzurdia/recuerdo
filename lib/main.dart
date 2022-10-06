@@ -124,6 +124,48 @@ class Home extends StatelessWidget {
             ],
           ),
 
+          // Boton que tiene un Icon adentro, se crea una instancia especial
+          // llamada Elevatedbutton.icon la cual va a querer 2 nuevos
+          // parametros de manera obligatoria, estos siendo
+          // icon: el icono, label: texto junto al icono
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              LimitedBox(
+                child: ElevatedButton.icon(
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    // aquí le damos los valores de tamaño
+                    fixedSize: const Size(200, 100),
+                    // para color de fondo
+                    backgroundColor: Colors.amber,
+                  ),
+                  icon: const Icon(Icons.mail),
+                  label: const Text("Envia un correo!"),
+                ),
+              )
+            ],
+          ),
+
+          // El IconButton nos sirve para crear botones que sean solo los
+          // iconos, es decir estos no tienen la wea de label, el texto
+          // que siempre va junto al icono
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              LimitedBox(
+                child: IconButton(
+                  onPressed: () {},
+                  // Aqui ya no se usa el IconButton.styleform
+                  // en vez de ello llamamos a lo que nos intersa
+                  // en este caso el color
+                  color: Colors.orange,
+                  icon: const Icon(Icons.mail),
+                ),
+              )
+            ],
+          ),
+
           // Puedo poner widgets dentro de widgets y en este caso estoy usando
           // a center para envolver todo porque centra todo y solo quiero
           // mostrar un elemento que sería el texto hola compañeros
