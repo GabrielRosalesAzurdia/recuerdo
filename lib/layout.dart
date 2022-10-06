@@ -1,5 +1,5 @@
 import 'dart:async';
-
+import 'layout2.dart';
 import 'package:flutter/material.dart';
 
 // Widget creado solo para experimentar con el diseño y las proporciones de
@@ -85,10 +85,12 @@ class AprendiendoLayout extends StatelessWidget {
 
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          // Navigator.pop sirve para regresar a la pantalla anterior
-          Navigator.pop(context);
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const AprendiendoLayout2()),
+          );
         },
-        child: const Text("Regresa wey"),
+        child: const Text("next"),
       ),
     );
   }
