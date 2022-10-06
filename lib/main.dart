@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+import 'layout.dart';
+
+// GR octubre 2022
+
 // Aquí es donde ocurre toda la magia,
 // esta cosa es el comienzo del árbol de widgets
 void main() {
@@ -155,7 +159,9 @@ class Home extends StatelessWidget {
             children: [
               LimitedBox(
                 child: IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    print("le diste click al icono");
+                  },
                   // Aqui ya no se usa el IconButton.styleform
                   // en vez de ello llamamos a lo que nos intersa
                   // en este caso el color
@@ -193,7 +199,15 @@ class Home extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         // Función que se ejecuta cuando el botón se aplasta
         onPressed: () {
-          print("hola");
+          // Uso la opción de navigator para navegar entre pantallas
+          // el push es para ir a una nueva y ponerla en el stack
+          // se le pasa el MaterialPageRouter que es el controlador
+          // de las páginas, el constructor y contexto y el widget que se
+          // va a cargar a continuación
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const AprendiendoLayout()),
+          );
         },
         backgroundColor: Colors.cyan[300],
         // El child del boton puede ser texto o un ícono
