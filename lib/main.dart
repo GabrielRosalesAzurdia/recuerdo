@@ -67,7 +67,7 @@ class Home extends StatelessWidget {
           ),
 
           // para usar botones elevados utilizamos el widget Elevated Button
-          // En el child noemos un texto cualquiera
+          // En el child ponemos un texto cualquiera
           // en el style colocamos un styleform propiedad e ElevateButton
           // para poder colocar todo lo estético de manera más sencila
           // ya que estamos utilizando una list view el width de todo será
@@ -83,10 +83,42 @@ class Home extends StatelessWidget {
                   style: ElevatedButton.styleFrom(
                     // aquí le damos los valores de tamaño
                     fixedSize: const Size(100, 100),
-                    // para color
+                    // para color de fondo
                     backgroundColor: Colors.cyan,
                   ),
                   child: const Text("click me"),
+                ),
+              )
+            ],
+          ),
+
+          // para usar botones planes usamos TextButton
+          // Los botones planos no tienen una sombra debajo
+          // En el child ponemos un texto cualquiera
+          // en el style colocamos un styleform propiedad de Textbutton
+          // para poder colocar todo lo estético de manera más sencila
+          // ya que estamos utilizando una list view el width de todo será
+          // el de toda la pantalla hacemos lo mismo que en el de arriba
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              LimitedBox(
+                child: TextButton(
+                  onPressed: () {
+                    print("precionaste el boton plano");
+                  },
+                  style: TextButton.styleFrom(
+                    // aquí le damos los valores de tamaño
+                    fixedSize: const Size(100, 100),
+                    // para color de fondo
+                    backgroundColor: Colors.cyan,
+                  ),
+                  child: const Text(
+                    "click meeee",
+                    style: TextStyle(
+                      color: Colors.black,
+                    ),
+                  ),
                 ),
               )
             ],
